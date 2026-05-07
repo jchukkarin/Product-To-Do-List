@@ -5,13 +5,8 @@ export default function Navbar() {
      const router = useRouter();
 
   const handleLogout = async () => {
-    // 🧹 ลบ cookie / session ฝั่ง client (ตัวอย่าง)
     document.cookie = "userId=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-
-    // 🔥 ถ้ามี token ก็ลบเพิ่ม
     document.cookie = "token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-
-    // 🔁 ไปหน้า login
     router.push("/login");
   };
 

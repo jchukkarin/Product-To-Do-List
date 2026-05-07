@@ -14,11 +14,10 @@ export default function Sidebar() {
     return (
         <div className="w-64 h-auto bg-slate-800 text-white p-4">
             <h1 className="text-xl font-bold mb-6">My App</h1>
-
-            <ul className="space-y-2">
-                {menu.map((item) => (
-                    <li key={item.name}>
-                        <Link
+                <ul className="space-y-2">
+                    {menu.map((item) => (
+                        <li key={item.name}>
+                            <Link
                             href={item.href}
                             className={`block px-4 py-2 rounded-lg ${pathname === item.href || pathname.startsWith(`${item.href}/`)
                                     ? "bg-slate-600"

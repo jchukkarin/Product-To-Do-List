@@ -27,7 +27,7 @@ export default function DeleteTaskButton({ taskId }: { taskId: string }) {
       onClick={handleDelete}
       className="rounded-lg bg-red-500 px-4 py-2 text-sm text-white transition hover:bg-red-600"
     >
-      ลบงาน
+      ลบ
     </button>
   );
 }
