@@ -13,7 +13,7 @@ export default function Sidebar() {
 
     return (
         <div className="w-64 h-auto bg-slate-800 text-white p-4">
-            <h1 className="text-xl font-bold mb-6">My App</h1>
+            <h1 className="text-xl font-bold mb-6">To Do List</h1>
                 <ul className="space-y-2">
                     {menu.map((item) => (
                         <li key={item.name}>
