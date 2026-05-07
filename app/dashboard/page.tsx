@@ -13,8 +13,7 @@ type Task = {
 
 export default function Dashboard() {
   const [tasks, setTasks] = useState<Task[]>([]);
-  const searchParams = useSearchParams();
-  const search = searchParams.get("search") || "";
+
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -25,10 +24,6 @@ export default function Dashboard() {
 
     fetchTasks();
   }, []);
-
-   const filteredTasks = tasks.filter((task) =>
-    task.title.toLowerCase().includes(search.toLowerCase())
-  );
 
     return (
     <div className="space-y-4">
@@ -50,7 +45,7 @@ export default function Dashboard() {
       </div>
       {/* List */}
       <div className="space-y-3">
-        {filteredTasks.map((task) => (
+        {tasks.map((task) => (
           <Link key={task._id} href={`/dashboard/task/${task._id}`}>
             <div className="bg-white p-4 rounded-xl shadow hover:shadow-md transition cursor-pointer mb-4">
               <h2 className="font-semibold">{task.title}</h2>
