@@ -21,8 +21,25 @@ export async function POST(req: Request) {
             return NextResponse.json({ error: "Invalid password" }, { status: 401 });
         }
 
-        return NextResponse.json({ message: "Login success", user });
-    } catch (error: any) {
-        return NextResponse.json({ error: error.message }, { status: 500 });
+        const response = NextResponse.json({
+            message: "Login success",
+            user: {
+                _id: user._id,
+                name: user.name,
+                email: user.email,
+            },
+        });
+
+        response.cookies.set("userId", user._id.toString(), {
+            httpOnly: true,
+            sameSite: "lax",
+            path: "/",
+            maxAge: 60 * 60 * 24 * 7,
+        });
+
+        return response;
+    } catch (error) {
+        const message = error instanceof Error ? error.message : "Login failed";
+        return NextResponse.json({ error: message }, { status: 500 });
     }
 }

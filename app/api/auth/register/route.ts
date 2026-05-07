@@ -17,8 +17,16 @@ export async function POST(req: Request) {
             password: hashedPassword,
         });
 
-        return NextResponse.json({ message: "User created", user });
-    } catch (error: any) {
-        return NextResponse.json({ error: error.message }, { status: 500 });
+        return NextResponse.json({
+            message: "User created",
+            user: {
+                _id: user._id,
+                name: user.name,
+                email: user.email,
+            },
+        });
+    } catch (error) {
+        const message = error instanceof Error ? error.message : "Register failed";
+        return NextResponse.json({ error: message }, { status: 500 });
     }
 }

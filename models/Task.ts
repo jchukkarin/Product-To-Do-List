@@ -11,6 +11,10 @@ const TaskSchema = new mongoose.Schema(
       default: "TODO",
     },
     dueDate: Date,
+    owner: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
     userId: String,
   },
   { timestamps: true }
