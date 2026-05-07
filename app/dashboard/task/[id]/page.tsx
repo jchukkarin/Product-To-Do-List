@@ -1,6 +1,6 @@
-import InviteForm from "@/app/components/Task/invite-form";
-import TaskCheck from "@/app/components/Task/task-check";
-import TaskList from "@/app/components/Task/task-list";
+import InviteForm from "@/app/components/Task/inviteform";
+import TaskCheck from "@/app/components/Task/taskcheck";
+import TaskList from "@/app/components/Task/tasklist";
 import DeleteTaskButton from "@/app/components/Button/delete-task-button";
 import { connectDB } from "@/lib/mongodb";
 import { getTaskAccess } from "@/lib/taskPermissions";
